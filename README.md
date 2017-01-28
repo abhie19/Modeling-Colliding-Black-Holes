@@ -26,8 +26,10 @@ Decay ~ a+b(Energy)+c(Energy)^2
 This model is third order polynomial which models something closest to what we see in the Decay vs Energy plot.
 
 RESULTS:
+
 The model has predicted very accurate decay values which were used to calculate the Energy of the SMBH at a specific kick velocity. 
 A detailed report can be found in the repository as report.pdf with the necessary plots and visualizations.
 
 Hope this helps!
+
 Abhishek
