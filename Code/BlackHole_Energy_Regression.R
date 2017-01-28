@@ -22,14 +22,6 @@ names(data7) <- c("Time", "Radius", "V3", "Energy", "V5","V6", "Orbit_Amplitude"
 names(data8) <- c("Time", "Radius", "V3", "Energy", "V5","V6", "Orbit_Amplitude", "V8","Orbital_Period", "V10","V11","V12","V13","Velocity")
 names(data9) <- c("Time", "Radius", "V3", "Energy", "V5","V6", "Orbit_Amplitude", "V8","Orbital_Period", "V10","V11","V12","V13","Velocity")
 
-attach(data1)
-attach(data2)
-attach(data3)
-attach(data4)
-attach(data5)
-attach(data6)
-attach(data7)
-attach(data8)
 attach(data9)
 
 # Explore Data
