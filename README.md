@@ -2,6 +2,7 @@
 Initial commit of all R code and data to GitHub repo
 
 GOAL:
+
 Our is goal is going to be to model the position/energy of the black hole as a function of time for a given set of black hole masses and kick velocities.
 
 INTRODUCTION:
