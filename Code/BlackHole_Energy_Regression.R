@@ -94,20 +94,20 @@ all_data <- merge(all_data,data3_mod, all = TRUE)
 all_data <- merge(all_data,data9_mod, all = TRUE)
 
 # Plotting with ggplot2
-{
+
 library(ggplot2)
 p <- ggplot(all_data, aes(Time,Energy,color = V7)) + geom_point()
 p
-}
+
 #Plotting time vs energy
 plot(data1_mod$Time, -abs(data1_mod$Energy))
 
 # Performing Log transformations on data
-{
+
 data1_mod["log_Energy"]<--(log(abs(data1_mod$Energy)))
-}
+
 # Creating linear model
-{
+
 fit1 <- lm(Energy ~ Time + Radius + Orbit_Amplitude + Orbital_Period, data=data1_mod)
 fit2 <- lm(Energy ~ Time + Orbit_Amplitude + Orbital_Period, data=data1_mod)
  
@@ -117,10 +117,10 @@ abline(lm(fit1))
 #Making test data
 test_data <- select(data2_mod, Time, Radius, Orbit_Amplitude, Orbital_Period)
 test_data <- test_data[1:20,]
-}
+
 
 # Code for taking only 1 standard deviation values
-{
+
 `%between%`<-function(x,rng) x>rng[1] & x<rng[2]
 sd_data <- sd(data3_mod[,7])
 mean_data <- mean(data3_mod[,7])
@@ -129,7 +129,7 @@ rng2 = mean_data+(1/2*sd_data)
 data3_mod_testsd <- data3_mod["Decay"] %between%  c(rng1,rng2)
 data3_mod_filter <- data3_mod[data3_mod_testsd,]
 plot(data3_mod_filter$Time,data3_mod_filter$Energy)
-}
+
 # Testing
 
 library(ggplot2)
@@ -138,7 +138,7 @@ p <- ggplot(data3_mod_filter, aes(Time, Energy)) + geom_point()
 p
 
 # NLS PRACTICE START
-{
+
 # generate data
 beta <- 0.05
 n <- 100
@@ -155,11 +155,11 @@ m<-nls(y~a*exp(a*x), data = df, start= c(a = -0.004))
 
 # add fitted curve
 lines(temp$x, predict(mod, list(x = temp$x)))
-}
+
 # NLS PRACTICE END
 
 # describing buckets and bucket values 
-{
+
 # 1st bucket Time 0 to 70 
 new_energy = list[]
 lower_range =0 
@@ -208,7 +208,7 @@ for( i in (lower_index+1):upper_index){
 }
 # Actual at 900 -1.450388 ;Predicted at 900 -1.074158 
 plot(data3_mod[lower_index:upper_index,1],new_energy[lower_index:upper_index])
-}
+
 
 ######### IMPORTANT FUNCTION ###############
 # Automating process of orbit detection
@@ -338,12 +338,12 @@ library(ggplot2)
 plot_combined <- ggplot( geom_point(data = newDF) + geom_point(data = OrbitDF_Combined) )
 plot_combined
 
-{# Draw a regression line on combined data
+# Draw a regression line on combined data
 abline(lm(OrbitDF_Combined$Decay~OrbitDF_Combined$Energy))
 # Taking only positive decays and drawing a regression line on combined data
 OrbitDF_Combined_pos<-OrbitDF_Combined[OrbitDF_Combined$Decay>0,]
 plot(OrbitDF_Combined_pos$Energy,OrbitDF_Combined_pos$Decay)
-}
+
 
 # Prediction
 
